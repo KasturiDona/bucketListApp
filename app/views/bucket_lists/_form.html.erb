@@ -40,7 +40,7 @@
   <% BucketList.statuses.each do |status, code| %>
     <div class="form-group status-list">
       <%= label_tag status %>
-      <%= radio_button_tag "bucket_list[status]", status, :value => "show" %>
+      <%= radio_button_tag "bucket_list[status]", status,  @bucket_list.status==status %>
     </div>
   <% end %><hr>
   <%= f.submit :class => 'submit btn btn-primary' %>
