@@ -27,7 +27,7 @@ class BucketListsController < ApplicationController
     @bucket_list = BucketList.new(bucket_list_params)
 		if params[:file]
 			response = Cloudinary::Uploader.upload params[:file]
-			bucket_list_params["image"] = response["url"]
+			@bucket_list.image = response["url"]
 		end
     respond_to do |format|
       if @bucket_list.save
@@ -47,7 +47,7 @@ class BucketListsController < ApplicationController
       if @bucket_list.update(bucket_list_params)
         if params[:file]
 			    response = Cloudinary::Uploader.upload params[:file]
-			    bucket_list_params["image"] = response["url"]
+			    @bucket_list.update :image => response["url"]
 		    end
         format.html { redirect_to @bucket_list, notice: 'Update successful!' }
         format.json { render :show, status: :ok, location: @bucket_list }

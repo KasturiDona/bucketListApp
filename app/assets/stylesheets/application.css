@@ -88,3 +88,9 @@ label {
   background-color: #286090;
   border-color: #204d74;
 }
+.picture img {
+  max-width: 300px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 10px 0;
+}
