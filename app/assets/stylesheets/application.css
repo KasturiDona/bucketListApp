@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap-datepicker
+ */
+@import 'https://fonts.googleapis.com/css?family=Fjalla+One|Josefin+Sans';
+ html {
+   padding-top: 50px;
+   font-family: 'Josefin Sans', sans-serif;
+ }
+ .jumbotron {
+   background-color: #f0ffff;
+ }
+ nav {
+   font-family: 'Fjalla One', sans-serif;
+ }
+.navbar-inverse .navbar-nav > li > a:active {
+  color: #fff !important;
+}
+h1, h2, h3, h4 {
+  font-family: 'Fjalla One', sans-serif !important;
+  color: #f6546a !important;
+}
+.heading-margin {
+  margin-left: 36px;
+}
+label {
+  font-size: 20px;
+}
+.green {
+  color: #00ff7f !important;
+}
+.data {
+  color: #909999;
+}
+.show-link {
+  margin-right: 30px;
+  font-size: 18px;
+}
+.link {
+  display: inline-block;
+  margin-right: 30px;
+}
+.status-list label {
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 0 !important;
+}
+.form-group {
+  margin-bottom: 25px;
+}
+.cancel {
+  margin-top: 20px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cancel:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}

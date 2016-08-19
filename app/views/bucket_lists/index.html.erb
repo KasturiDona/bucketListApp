@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<h2 class="heading-margin">Bucket List (<%= @bucket_lists.count %>)</h2><hr>
+	<% @bucket_lists.each do |bucket_list| %>
+  <h3 class="heading-margin"><%= link_to (bucket_list.name), bucket_list %></h3>
+  <ul>
+		<li>Place - <span class="data"><%= bucket_list.location %></span></li>
+		<li>With - <span class="data"><%= bucket_list.mates %></span></li>
+    <li>Date - <span class="data"><%= bucket_list.timing.strftime "%A, %e %B %Y" %></span></li>
+		<li>Comment - <span class="data"><%= bucket_list.comment %></span></li>
+    <div class="picture">
+  			<%= image_tag bucket_list.image, :class => 'img-responsive' %>
+  	</div>
+    <li>Status -
+      <% if bucket_list.status == "completed" %>
+  			<span class="green data"><%= (bucket_list.status).capitalize %> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span>
+  	  <% else %><span class="data"><%= (bucket_list.status).gsub("_", " ").capitalize %></span>
+    <% end %></li>
+    <br/>
+		<li class="link"><%= link_to 'Edit', edit_bucket_list_path(bucket_list) %></li>
+		<li class="link"><%= link_to 'Delete', bucket_list, :method => 'delete', :data => { :confirm => "Are you sure?" } %></li>
+	</ul>
+  <hr/>
+	<% end %>
+	<ul>
+		<li class="link"><%= link_to 'Create New', new_bucket_list_path %></li>
+	</ul>

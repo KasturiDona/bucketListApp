@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<div class="show">
+  <h2><%= @bucket_list.name %></h2><br />
+  <p>Place - <span class="data"><%= @bucket_list.location %></span></p>
+  <p>With - <span class="data"><%= @bucket_list.mates %></span></p>
+  <p>Date - <span class="data"><%= @bucket_list.timing.strftime "%A, %e %B %Y" %></span></p>
+  <p>Comment - <span class="data"><%= @bucket_list.comment %></span></p>
+  <div class="picture">
+			<%= image_tag @bucket_list.image, :class => 'img-responsive' %>
+	</div>
+  <p>Status - <% if @bucket_list.status == "completed" %>
+    <span class="green data"><%= (@bucket_list.status).capitalize %> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span>
+  <% else %><span class="data"><%= (@bucket_list.status).gsub("_", " ").capitalize %></span>
+<% end %></p>
+</div><br />
+<%= link_to 'Edit', edit_bucket_list_path(@bucket_list), :class => "show-link" %>
+<%= link_to 'Back', bucket_lists_path, :class => "show-link" %>

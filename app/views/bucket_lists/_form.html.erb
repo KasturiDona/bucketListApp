@@ -1,0 +1,47 @@
+<%= form_for @bucket_list, :html => { :multipart => true } do |f| %>
+  <% if @bucket_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bucket_list.errors.count, "error") %> prohibited this bucket_list from being saved:</h2>
+      <ul>
+      <% @bucket_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :placeholder=> "Make a wish..", :class=> "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location, "That place..." %><br>
+    <%= f.text_field :location, :placeholder=> "Mars", :class=> "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :mates, "With my mates..." %><br>
+    <%= f.text_area :mates, :placeholder=> "The Martian", :class=> "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :timing, "Set a date" %><br>
+    <%= f.text_field :timing, :placeholder=> "YYYY-MM-DD", 'data-behaviour' => 'datepicker', :class=> "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :comment, "Comments???" %><br>
+    <%= f.text_area :comment, :placeholder=> "Say something...", :class=> "form-control" %>
+  </div>
+  <div class="form-group">
+		<%= f.label :image %>
+		<%= f.cl_image_upload :file, :class=> "form-control" %>
+	</div>
+  <div class="form-group">
+		<%= f.label :status %>
+  </div>
+  <% BucketList.statuses.each do |status, code| %>
+    <div class="form-group status-list">
+      <%= label_tag status %>
+      <%= radio_button_tag "bucket_list[status]", status, :value => "show" %>
+    </div>
+  <% end %><hr>
+  <%= f.submit :class => 'submit btn btn-primary' %>
+<% end %>
